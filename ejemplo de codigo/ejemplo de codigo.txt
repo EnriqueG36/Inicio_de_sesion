@@ -1,0 +1,58 @@
+=======guardar información en una session: ==========
+
+app.get('/rutaEjemplo', (req, res) => {
+	req.session.user = "enriqueLopez";		//Establece el user como enriqueLopez
+	req.session.password = "123456";
+	req.session.admin = false;
+	res.send("OK");
+});
+
+usando req.session.user = req.query.name; le asignamos el nombre al user por un path params  /name=Enrique
+
+
+=======Acceder a la informacion de la session =========
+
+app.get('/rutaEjemploDatosDeSession', (req, res) => {
+	res.send(req.session.user + req.session.admin);
+});
+
+========Destruir una session ===========================
+app.get('/EjemploLogout, (req, res) = > {
+	req.session.destroy( err => {
+	if (err) return res.send(err);
+	res.redirect('/);
+})
+});
+
+=======Middleware auth
+
+const auth = (req, res, next) => {
+	if (req.session && req.session.user) {
+	return next();
+	}
+	return res.status(401).redirect('/unauthorized');
+}
+
+module.exports = auth;
+
+======Middleware admin auth
+
+const adminAuth = (req, res, next) => {
+	if (req.session && req.session.admin) {
+	return next();
+	}
+	return res.status(401).redirect('/unauthorized');
+}
+ module.exports = adminAuth;
+
+
+=======Validar si existe una session activa========
+
+app.get('/'. (req, res) => {
+if (req.session?.user) {
+	const user = req.session.user;
+	const isAdmin = req.session.admin;
+	return res.render('profile', { user, isAdmin });
+	}
+	return res.render('index');
+});

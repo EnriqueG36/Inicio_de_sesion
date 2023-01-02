@@ -1,0 +1,20 @@
+<title>Vista</title>
+
+<h1>Como parte del desafio 5, esto fue creado con una plantilla en handlebars</h1>
+<h3>Lista de todos los productos</h3>
+
+<ul>
+    {{#each obtenerTodos}}
+        <li>{{this.id}}</li>
+        <li>{{this.title}}</li>
+        <li>{{this.price}}</li>
+        <li>{{this.thumbnail}}</li>
+    {{/each}}
+</ul>
+
+
+
+            </form>
+                <form action="/" method="get">
+                <input type="submit" value="Regresar al formulario">
+            </form>

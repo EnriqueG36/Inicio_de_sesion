@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio Login con Session</title>
+</head>
+<body>
+    <div style="display: flex; gap: 10px;">
+        <div>
+            
+
+            <script src="/socket.io/socket.io.js"></script>     <!-- Este script está dentro de la carpeta socket.io que se genera al instalar socket-->
+            <script src="./main.js"></script>                   <!-- Este es nuestro script con la logica del cliente-->
+            <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>   <!-- Handlebars desde un CDN-->
+
+
+        </div>
+
+        <div id="nombreUsuario">                                       <!-- Aquí en este div, se inyecta la plantillaProductos de handlebars-->
+                       
+        </div>
+
+        </form>
+        <form action="/logout" method="get">
+        <input type="submit" value="Logout">
+        </form>
+        </div>
+
+        <div>
+            <h1>Agregar producto</h1>
+
+           <!--justo aqui estaba los de los scripts-->
+
+            <!-- <form action="/api/productos" method="post">                        -Formulario para añadir productos-->
+            <form onsubmit="return addProducto(this)">
+                <label for="title">Titulo del producto:</label>
+                <input type="text" name="title" id="title"><br>
+
+                <label for="price">Precio del producto:</label>
+                <input type="text" name="price" id="price"><br>
+
+                <label for="thumbnail">Url imagen del producto</label>
+                <input type="text" name="thumbnail" id="thumbnail"><br>
+
+                <input type="submit" value="Agregar producto">                      <!--Boton para agregar productos-->
+            </form>
+            
+        </div>
+
+        <div id="plantillaProductos">                                       <!-- Aquí en este div, se inyecta la plantillaProductos de handlebars-->
+            
+                
+        </div>
+        <br>
+        <div id="chat">
+            <h3>Chat!!</h3>                                                 <!-- Encabezado del chat-->
+            <form onsubmit="return addMessage(this)">                       <!-- Formulario del chat-->
+                <input type="text" id="username" placeholder="Tu email" >
+                <input type="text" id="texto" placeholder="Cuéntanos algo...">
+                <input type="submit" id="botonEnviar" value="Enviar">
+            </form>
+        </div>
+        <div id="mensajeria">                                               <!--Espacio donde se muestran los mensajes del chat-->
+        </div>
+
+        </div>                                         
+</body>
+</html>
