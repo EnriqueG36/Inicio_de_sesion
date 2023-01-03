@@ -43,7 +43,7 @@ app.use(session({
     resave: false,                                  //Autoguarda cambios en la session
     saveUninitialized: false,
     store: MongoStore.create({
-       mongoUrl: 'mongodb+srv://enrique:dbmongo@clustercoder.ijswitn.mongodb.net/DesafioInicioSesion?retryWrites=true&w=majority',
+       mongoUrl: 'mongodb+srv://enrique:InsertarelpasswordAqui@clustercoder.ijswitn.mongodb.net/DesafioInicioSesion?retryWrites=true&w=majority',
     }),
     cookie: {
         maxAge: 600000                              //Duracion de la session en mongo atlas 10 min
