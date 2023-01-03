@@ -1,6 +1,6 @@
 //Contiene la configuración del middleware de passport
 //Passport local es una strategy para autenticación con un username y un password
-//La strategy requiere un callback varyvy, el cual acepta las credenciales y llama al metodo done, una vez comprobado el user
+//La strategy requiere un callback, el cual acepta las credenciales y llama al metodo done, una vez comprobado el user
 
 const bcrypt = require('bcrypt');                           //Importamos el modulo bcrypt
 const passport = require('passport');                       //importamos el modulo passport
@@ -14,9 +14,10 @@ const isValidPassword = (user, password) => bcrypt.compareSync(password, user.pa
 //passport local strategy
 
 //sign Up
-passport.use('signup', new LocalStrategy({
-    passReqToCallback: true
-}, async (req, username, password, done) => {
+passport.use('signup', new LocalStrategy({passReqToCallback: true}, 
+    (req, username, password, done) => {
+    console.log(username);
+
     try {
         const newUser = {
             email: username,

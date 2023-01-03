@@ -64,7 +64,7 @@ app.use('/api', apiRoutes);                      //Ruta a routers.js con prefijo
 let nombreDelUser;
 
 //En esta ruta se setteará la session
-app.post('/login', (req, res) => {
+/*app.post('/login', (req, res) => {
     const { user } = req.body;                  //tomamos el nombre del usuario del body de la peticion    
     req.session.user = user;                    //Setteamos el nombre del usuario de la session
     req.session.save((err) => {                 //Guardamos la session
@@ -75,6 +75,9 @@ app.post('/login', (req, res) => {
         return res.redirect('/index2');      
     })
   });
+  */
+
+ app.post('/registro', passport.authenticate('signup', {failureRedirect: '/signup-error'}), redirect('/index2'));
 
 //Aquí debe de ir la logica para ver si la session está activa
 app.get('/index2', (req, res) => {
